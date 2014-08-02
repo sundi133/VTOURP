@@ -1,0 +1,52 @@
+@(message: String)
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>home vtourp</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/TB.min.js")" type="text/javascript"></script>
+        
+    </head>
+    <body>
+        <center><h4>@message</h4></center><br/>
+        <table>
+        <tr>
+        <td width="5%">
+        </td>
+        
+        <td align="right">
+        	<div id="myPublisherDiv"></div>
+        
+        </td>
+        
+        <td width="20%">
+        </td>
+
+        </tr>
+        </table>
+                <script type="text/javascript">
+          // Initialize API key, session, and token...
+          // Think of a session as a room, and a token as the key to get in to the room
+          // Sessions and tokens are generated on your server and passed down to the client
+          var apiKey = "44925482";
+          var sessionId = "2_MX40NDkyNTQ4Mn5-U2F0IEF1ZyAwMiAwMTo1Mjo0NSBQRFQgMjAxNH4wLjA1ODgxMzc1fn4";
+          var token = "T1==cGFydG5lcl9pZD00NDkyNTQ4MiZzaWc9NTIzZjFmNGVjZTdlODVjNWI5MjJmNDk0NWFhOWRiNGZhOGM4MDdkZDpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTJfTVg0ME5Ea3lOVFE0TW41LVUyRjBJRUYxWnlBd01pQXdNVG8xTWpvME5TQlFSRlFnTWpBeE5INHdMakExT0RneE16YzFmbjQmY3JlYXRlX3RpbWU9MTQwNjk2OTU2NSZub25jZT0wLjU5NzAwMTU1MTk4NDcyOTUmZXhwaXJlX3RpbWU9MTQwNzA1NTk2NQ==";
+
+          // Initialize session, set up event listeners, and connect
+          var session = TB.initSession(sessionId);
+          session.addEventListener('sessionConnected', sessionConnectedHandler);
+          session.connect(apiKey, token);
+          
+          function sessionConnectedHandler(event) {
+            var publisher = TB.initPublisher(apiKey, 'myPublisherDiv');
+            session.publish(publisher);
+          }
+          
+        </script>
+    </body>
+</html>
+
